@@ -37,6 +37,12 @@ namespace Ana_kata
             public string cookie = null;
             public string market = null;
             public string response = null;
+            public List<string> banned = new List<string>()
+            {
+                "InvalidTokenException",
+                "NotAllowedException",
+                "localizationCode"
+            };
         }
 
         Variables variables = new Variables();
@@ -89,6 +95,10 @@ namespace Ana_kata
             {
                 load_market(output);
             }
+            else
+            {
+                load_market(variables.profile.market.path);
+            }
         }
 
         private void saver(object sender, EventArgs e)
@@ -137,8 +147,15 @@ namespace Ana_kata
 
         private void load_market(string path)
         {
-            variables.market = File.ReadAllText(path);
-            variables.manager.label(label_market_path, path, Color.Violet);
+            if (File.Exists(path) == true)
+            {
+                variables.market = File.ReadAllText(path);
+                variables.manager.label(label_market_path, path, Color.Violet);
+            }
+            else
+            {
+                variables.manager.label(label_market_path, "path not found", Color.Red);
+            }
         }
 
         private void button_play_Click(object sender, EventArgs e)
@@ -276,8 +293,34 @@ namespace Ana_kata
                             }
                         }
                     }
+                    if (sess.fullUrl.Contains("bhvrdbd.com/api/v1/auth/provider/") == true)
+                    {
+                        variables.response = sess.GetResponseBodyAsString();
+                        if (variables.response != null && variables.response != string.Empty)
+                        {
+                            if (is_banned(variables.banned, variables.response) == true)
+                            {
+                                variables.manager.label(label_banned, "banned", Color.Red);
+                            }
+                            else
+                            {
+                                variables.manager.label(label_banned, "not banned", Color.LimeGreen);
+                            }
+                        }
+                    }
                 }
             }
+        }
+
+        private bool is_banned(List<string> messages, string body)
+        {
+            foreach (string message in messages)
+            {
+                if (body.Contains(message) == true)
+                    return (true);
+            }
+
+            return (false);
         }
 
         private void Ana_kata_Shown(object sender, EventArgs e)
