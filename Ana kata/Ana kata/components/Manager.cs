@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Ana_kata.components
 {
-    class Manager
+    public class Manager
     {
         public void label(Control controller, string data, Color color)
         {
@@ -29,6 +29,14 @@ namespace Ana_kata.components
             }));
 
             return (value);
+        }
+
+        public void set_richtextbox(RichTextBox controller, string value)
+        {
+            controller.Invoke(new MethodInvoker(delegate
+            {
+                controller.AppendText(value);
+            }));
         }
 
         public void listview(ListView controller, ImageList images, List<string> items)
@@ -116,6 +124,14 @@ namespace Ana_kata.components
             }));
 
             return (checked_status);
+        }
+
+        public void enabler_switch_button(Bunifu.UI.WinForms.BunifuToggleSwitch controller, bool status)
+        {
+            controller.Invoke(new MethodInvoker(delegate
+            {
+                controller.Enabled = status;
+            }));
         }
 
         public void set_switch_button(Bunifu.UI.WinForms.BunifuToggleSwitch controller, bool status)

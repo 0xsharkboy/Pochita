@@ -205,6 +205,12 @@
       <DependentUpon>Ana kata.cs</DependentUpon>
     </Compile>
     <Compile Include="components\Manager.cs" />
+    <Compile Include="dev mod\dev_mod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dev mod\dev_mod.Designer.cs">
+      <DependentUpon>dev_mod.cs</DependentUpon>
+    </Compile>
     <Compile Include="popup\ok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     </Compile>
     <EmbeddedResource Include="Ana kata.resx">
       <DependentUpon>Ana kata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dev mod\dev_mod.resx">
+      <DependentUpon>dev_mod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="popup\ok.resx">
       <DependentUpon>ok.cs</DependentUpon>
