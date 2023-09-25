@@ -118,7 +118,7 @@ namespace Ana_kata.splash
                 {
                     manager.label(label_status, "updating market", Color.White);
                     client = new WebClient();
-                    client.DownloadFile("https://eclipsed.top/blob/market.json", "market\\market.json");
+                    client.DownloadFile("https://raw.githubusercontent.com/SharkBoy69-CS/the_texas_chainsaw_massacre-market/main/market.json", "market\\market.json");
                 }
             }
 

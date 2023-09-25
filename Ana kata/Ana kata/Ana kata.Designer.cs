@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Ana_kata
 {
     partial class Ana_kata
@@ -31,23 +33,17 @@ namespace Ana_kata
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ana_kata));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState1 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState2 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState3 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState4 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState5 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState6 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState7 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState8 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState9 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState10 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState11 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState12 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState13 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState14 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState15 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState16 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState17 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState18 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             this.header = new System.Windows.Forms.Panel();
             this.button_reduce = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -59,8 +55,6 @@ namespace Ana_kata
             this.button_play = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.switch_autorun = new Bunifu.UI.WinForms.BunifuToggleSwitch();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
-            this.label14 = new System.Windows.Forms.Label();
-            this.switch_dev_mod = new Bunifu.UI.WinForms.BunifuToggleSwitch();
             this.label_playername = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label_token = new System.Windows.Forms.Label();
@@ -69,8 +63,6 @@ namespace Ana_kata
             this.label10 = new System.Windows.Forms.Label();
             this.label_queue = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.switch_save_cookie = new Bunifu.UI.WinForms.BunifuToggleSwitch();
             this.label_cookie = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -125,6 +117,7 @@ namespace Ana_kata
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(89, 3);
@@ -178,7 +171,7 @@ namespace Ana_kata
             this.bunifuCards1.Controls.Add(this.button_stop);
             this.bunifuCards1.Controls.Add(this.button_play);
             this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(12, 339);
+            this.bunifuCards1.Location = new System.Drawing.Point(12, 311);
             this.bunifuCards1.Name = "bunifuCards1";
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
@@ -204,11 +197,11 @@ namespace Ana_kata
             this.button_stop.ColorContrastOnClick = 45;
             this.button_stop.ColorContrastOnHover = 45;
             this.button_stop.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.button_stop.CustomizableEdges = borderEdges1;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.button_stop.CustomizableEdges = borderEdges3;
             this.button_stop.DialogResult = System.Windows.Forms.DialogResult.None;
             this.button_stop.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.button_stop.DisabledFillColor = System.Drawing.Color.Empty;
@@ -297,11 +290,11 @@ namespace Ana_kata
             this.button_play.ColorContrastOnClick = 45;
             this.button_play.ColorContrastOnHover = 45;
             this.button_play.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.button_play.CustomizableEdges = borderEdges2;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.button_play.CustomizableEdges = borderEdges4;
             this.button_play.DialogResult = System.Windows.Forms.DialogResult.None;
             this.button_play.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.button_play.DisabledFillColor = System.Drawing.Color.Empty;
@@ -385,33 +378,33 @@ namespace Ana_kata
             this.switch_autorun.Size = new System.Drawing.Size(30, 16);
             this.switch_autorun.TabIndex = 33;
             this.switch_autorun.ThumbMargin = 3;
-            toggleState1.BackColor = System.Drawing.Color.DarkGray;
-            toggleState1.BackColorInner = System.Drawing.Color.White;
-            toggleState1.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState1.BorderColorInner = System.Drawing.Color.White;
-            toggleState1.BorderRadius = 17;
-            toggleState1.BorderRadiusInner = 11;
-            toggleState1.BorderThickness = 1;
-            toggleState1.BorderThicknessInner = 1;
-            this.switch_autorun.ToggleStateDisabled = toggleState1;
-            toggleState2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState2.BackColorInner = System.Drawing.Color.White;
-            toggleState2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState2.BorderColorInner = System.Drawing.Color.White;
-            toggleState2.BorderRadius = 15;
-            toggleState2.BorderRadiusInner = 9;
-            toggleState2.BorderThickness = 1;
-            toggleState2.BorderThicknessInner = 1;
-            this.switch_autorun.ToggleStateOff = toggleState2;
-            toggleState3.BackColor = System.Drawing.Color.Violet;
-            toggleState3.BackColorInner = System.Drawing.Color.White;
-            toggleState3.BorderColor = System.Drawing.Color.Violet;
-            toggleState3.BorderColorInner = System.Drawing.Color.White;
-            toggleState3.BorderRadius = 15;
-            toggleState3.BorderRadiusInner = 9;
-            toggleState3.BorderThickness = 1;
-            toggleState3.BorderThicknessInner = 1;
-            this.switch_autorun.ToggleStateOn = toggleState3;
+            toggleState10.BackColor = System.Drawing.Color.DarkGray;
+            toggleState10.BackColorInner = System.Drawing.Color.White;
+            toggleState10.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState10.BorderColorInner = System.Drawing.Color.White;
+            toggleState10.BorderRadius = 17;
+            toggleState10.BorderRadiusInner = 11;
+            toggleState10.BorderThickness = 1;
+            toggleState10.BorderThicknessInner = 1;
+            this.switch_autorun.ToggleStateDisabled = toggleState10;
+            toggleState11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState11.BackColorInner = System.Drawing.Color.White;
+            toggleState11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState11.BorderColorInner = System.Drawing.Color.White;
+            toggleState11.BorderRadius = 15;
+            toggleState11.BorderRadiusInner = 9;
+            toggleState11.BorderThickness = 1;
+            toggleState11.BorderThicknessInner = 1;
+            this.switch_autorun.ToggleStateOff = toggleState11;
+            toggleState12.BackColor = System.Drawing.Color.Violet;
+            toggleState12.BackColorInner = System.Drawing.Color.White;
+            toggleState12.BorderColor = System.Drawing.Color.Violet;
+            toggleState12.BorderColorInner = System.Drawing.Color.White;
+            toggleState12.BorderRadius = 15;
+            toggleState12.BorderRadiusInner = 9;
+            toggleState12.BorderThickness = 1;
+            toggleState12.BorderThicknessInner = 1;
+            this.switch_autorun.ToggleStateOn = toggleState12;
             this.switch_autorun.Value = false;
             // 
             // bunifuCards2
@@ -420,8 +413,6 @@ namespace Ana_kata
             this.bunifuCards2.BorderRadius = 5;
             this.bunifuCards2.BottomSahddow = true;
             this.bunifuCards2.color = System.Drawing.Color.Violet;
-            this.bunifuCards2.Controls.Add(this.label14);
-            this.bunifuCards2.Controls.Add(this.switch_dev_mod);
             this.bunifuCards2.Controls.Add(this.label_playername);
             this.bunifuCards2.Controls.Add(this.label13);
             this.bunifuCards2.Controls.Add(this.label_token);
@@ -430,8 +421,6 @@ namespace Ana_kata
             this.bunifuCards2.Controls.Add(this.label10);
             this.bunifuCards2.Controls.Add(this.label_queue);
             this.bunifuCards2.Controls.Add(this.label9);
-            this.bunifuCards2.Controls.Add(this.label7);
-            this.bunifuCards2.Controls.Add(this.switch_save_cookie);
             this.bunifuCards2.Controls.Add(this.label_cookie);
             this.bunifuCards2.Controls.Add(this.label8);
             this.bunifuCards2.Controls.Add(this.label6);
@@ -447,66 +436,13 @@ namespace Ana_kata
             this.bunifuCards2.Name = "bunifuCards2";
             this.bunifuCards2.RightSahddow = true;
             this.bunifuCards2.ShadowDepth = 20;
-            this.bunifuCards2.Size = new System.Drawing.Size(268, 258);
+            this.bunifuCards2.Size = new System.Drawing.Size(268, 230);
             this.bunifuCards2.TabIndex = 4;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(49, 119);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(50, 13);
-            this.label14.TabIndex = 53;
-            this.label14.Text = "Dev mod";
-            // 
-            // switch_dev_mod
-            // 
-            this.switch_dev_mod.Animation = 5;
-            this.switch_dev_mod.AnimationSpeed = 5;
-            this.switch_dev_mod.BackColor = System.Drawing.Color.Transparent;
-            this.switch_dev_mod.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switch_dev_mod.BackgroundImage")));
-            this.switch_dev_mod.Checked = true;
-            this.switch_dev_mod.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switch_dev_mod.InnerCirclePadding = 3;
-            this.switch_dev_mod.Location = new System.Drawing.Point(13, 116);
-            this.switch_dev_mod.Name = "switch_dev_mod";
-            this.switch_dev_mod.Size = new System.Drawing.Size(30, 16);
-            this.switch_dev_mod.TabIndex = 52;
-            this.switch_dev_mod.ThumbMargin = 3;
-            toggleState4.BackColor = System.Drawing.Color.DarkGray;
-            toggleState4.BackColorInner = System.Drawing.Color.White;
-            toggleState4.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState4.BorderColorInner = System.Drawing.Color.White;
-            toggleState4.BorderRadius = 17;
-            toggleState4.BorderRadiusInner = 11;
-            toggleState4.BorderThickness = 1;
-            toggleState4.BorderThicknessInner = 1;
-            this.switch_dev_mod.ToggleStateDisabled = toggleState4;
-            toggleState5.BackColor = System.Drawing.Color.Empty;
-            toggleState5.BackColorInner = System.Drawing.Color.Empty;
-            toggleState5.BorderColor = System.Drawing.Color.Transparent;
-            toggleState5.BorderColorInner = System.Drawing.Color.Empty;
-            toggleState5.BorderRadius = 1;
-            toggleState5.BorderRadiusInner = 1;
-            toggleState5.BorderThickness = 1;
-            toggleState5.BorderThicknessInner = 1;
-            this.switch_dev_mod.ToggleStateOff = toggleState5;
-            toggleState6.BackColor = System.Drawing.Color.Violet;
-            toggleState6.BackColorInner = System.Drawing.Color.White;
-            toggleState6.BorderColor = System.Drawing.Color.Violet;
-            toggleState6.BorderColorInner = System.Drawing.Color.White;
-            toggleState6.BorderRadius = 15;
-            toggleState6.BorderRadiusInner = 9;
-            toggleState6.BorderThickness = 1;
-            toggleState6.BorderThicknessInner = 1;
-            this.switch_dev_mod.ToggleStateOn = toggleState6;
-            this.switch_dev_mod.Value = true;
-            this.switch_dev_mod.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.switch_dev_mod_CheckedChanged);
             // 
             // label_playername
             // 
             this.label_playername.ForeColor = System.Drawing.Color.Violet;
-            this.label_playername.Location = new System.Drawing.Point(86, 189);
+            this.label_playername.Location = new System.Drawing.Point(86, 151);
             this.label_playername.Name = "label_playername";
             this.label_playername.Size = new System.Drawing.Size(154, 13);
             this.label_playername.TabIndex = 51;
@@ -515,7 +451,7 @@ namespace Ana_kata
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(13, 189);
+            this.label13.Location = new System.Drawing.Point(13, 151);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 13);
             this.label13.TabIndex = 50;
@@ -524,7 +460,7 @@ namespace Ana_kata
             // label_token
             // 
             this.label_token.ForeColor = System.Drawing.Color.Violet;
-            this.label_token.Location = new System.Drawing.Point(86, 176);
+            this.label_token.Location = new System.Drawing.Point(86, 138);
             this.label_token.Name = "label_token";
             this.label_token.Size = new System.Drawing.Size(154, 13);
             this.label_token.TabIndex = 49;
@@ -533,7 +469,7 @@ namespace Ana_kata
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(13, 176);
+            this.label12.Location = new System.Drawing.Point(13, 138);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 48;
@@ -542,7 +478,7 @@ namespace Ana_kata
             // label_banned
             // 
             this.label_banned.ForeColor = System.Drawing.Color.Violet;
-            this.label_banned.Location = new System.Drawing.Point(86, 228);
+            this.label_banned.Location = new System.Drawing.Point(86, 191);
             this.label_banned.Name = "label_banned";
             this.label_banned.Size = new System.Drawing.Size(154, 13);
             this.label_banned.TabIndex = 47;
@@ -551,7 +487,7 @@ namespace Ana_kata
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 228);
+            this.label10.Location = new System.Drawing.Point(13, 191);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 13);
             this.label10.TabIndex = 46;
@@ -560,7 +496,7 @@ namespace Ana_kata
             // label_queue
             // 
             this.label_queue.ForeColor = System.Drawing.Color.Violet;
-            this.label_queue.Location = new System.Drawing.Point(86, 202);
+            this.label_queue.Location = new System.Drawing.Point(86, 164);
             this.label_queue.Name = "label_queue";
             this.label_queue.Size = new System.Drawing.Size(154, 13);
             this.label_queue.TabIndex = 45;
@@ -569,68 +505,16 @@ namespace Ana_kata
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 202);
+            this.label9.Location = new System.Drawing.Point(13, 164);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 13);
             this.label9.TabIndex = 44;
             this.label9.Text = "Queue:";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(49, 97);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 13);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "Auto save cookie";
-            // 
-            // switch_save_cookie
-            // 
-            this.switch_save_cookie.Animation = 5;
-            this.switch_save_cookie.AnimationSpeed = 5;
-            this.switch_save_cookie.BackColor = System.Drawing.Color.Transparent;
-            this.switch_save_cookie.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switch_save_cookie.BackgroundImage")));
-            this.switch_save_cookie.Checked = true;
-            this.switch_save_cookie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switch_save_cookie.InnerCirclePadding = 3;
-            this.switch_save_cookie.Location = new System.Drawing.Point(13, 94);
-            this.switch_save_cookie.Name = "switch_save_cookie";
-            this.switch_save_cookie.Size = new System.Drawing.Size(30, 16);
-            this.switch_save_cookie.TabIndex = 42;
-            this.switch_save_cookie.ThumbMargin = 3;
-            toggleState7.BackColor = System.Drawing.Color.DarkGray;
-            toggleState7.BackColorInner = System.Drawing.Color.White;
-            toggleState7.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState7.BorderColorInner = System.Drawing.Color.White;
-            toggleState7.BorderRadius = 17;
-            toggleState7.BorderRadiusInner = 11;
-            toggleState7.BorderThickness = 1;
-            toggleState7.BorderThicknessInner = 1;
-            this.switch_save_cookie.ToggleStateDisabled = toggleState7;
-            toggleState8.BackColor = System.Drawing.Color.Empty;
-            toggleState8.BackColorInner = System.Drawing.Color.Empty;
-            toggleState8.BorderColor = System.Drawing.Color.Transparent;
-            toggleState8.BorderColorInner = System.Drawing.Color.Empty;
-            toggleState8.BorderRadius = 1;
-            toggleState8.BorderRadiusInner = 1;
-            toggleState8.BorderThickness = 1;
-            toggleState8.BorderThicknessInner = 1;
-            this.switch_save_cookie.ToggleStateOff = toggleState8;
-            toggleState9.BackColor = System.Drawing.Color.Violet;
-            toggleState9.BackColorInner = System.Drawing.Color.White;
-            toggleState9.BorderColor = System.Drawing.Color.Violet;
-            toggleState9.BorderColorInner = System.Drawing.Color.White;
-            toggleState9.BorderRadius = 15;
-            toggleState9.BorderRadiusInner = 9;
-            toggleState9.BorderThickness = 1;
-            toggleState9.BorderThicknessInner = 1;
-            this.switch_save_cookie.ToggleStateOn = toggleState9;
-            this.switch_save_cookie.Value = true;
-            // 
             // label_cookie
             // 
             this.label_cookie.ForeColor = System.Drawing.Color.Violet;
-            this.label_cookie.Location = new System.Drawing.Point(86, 163);
+            this.label_cookie.Location = new System.Drawing.Point(86, 125);
             this.label_cookie.Name = "label_cookie";
             this.label_cookie.Size = new System.Drawing.Size(154, 13);
             this.label_cookie.TabIndex = 41;
@@ -640,11 +524,11 @@ namespace Ana_kata
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 163);
+            this.label8.Location = new System.Drawing.Point(13, 125);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 13);
+            this.label8.Size = new System.Drawing.Size(21, 13);
             this.label8.TabIndex = 40;
-            this.label8.Text = "Cookie:";
+            this.label8.Text = "ID:";
             // 
             // label6
             // 
@@ -669,39 +553,39 @@ namespace Ana_kata
             this.switch_active_market.Size = new System.Drawing.Size(30, 16);
             this.switch_active_market.TabIndex = 38;
             this.switch_active_market.ThumbMargin = 3;
-            toggleState10.BackColor = System.Drawing.Color.DarkGray;
-            toggleState10.BackColorInner = System.Drawing.Color.White;
-            toggleState10.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState10.BorderColorInner = System.Drawing.Color.White;
-            toggleState10.BorderRadius = 17;
-            toggleState10.BorderRadiusInner = 11;
-            toggleState10.BorderThickness = 1;
-            toggleState10.BorderThicknessInner = 1;
-            this.switch_active_market.ToggleStateDisabled = toggleState10;
-            toggleState11.BackColor = System.Drawing.Color.Empty;
-            toggleState11.BackColorInner = System.Drawing.Color.Empty;
-            toggleState11.BorderColor = System.Drawing.Color.Transparent;
-            toggleState11.BorderColorInner = System.Drawing.Color.Empty;
-            toggleState11.BorderRadius = 1;
-            toggleState11.BorderRadiusInner = 1;
-            toggleState11.BorderThickness = 1;
-            toggleState11.BorderThicknessInner = 1;
-            this.switch_active_market.ToggleStateOff = toggleState11;
-            toggleState12.BackColor = System.Drawing.Color.Violet;
-            toggleState12.BackColorInner = System.Drawing.Color.White;
-            toggleState12.BorderColor = System.Drawing.Color.Violet;
-            toggleState12.BorderColorInner = System.Drawing.Color.White;
-            toggleState12.BorderRadius = 15;
-            toggleState12.BorderRadiusInner = 9;
-            toggleState12.BorderThickness = 1;
-            toggleState12.BorderThicknessInner = 1;
-            this.switch_active_market.ToggleStateOn = toggleState12;
+            toggleState13.BackColor = System.Drawing.Color.DarkGray;
+            toggleState13.BackColorInner = System.Drawing.Color.White;
+            toggleState13.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState13.BorderColorInner = System.Drawing.Color.White;
+            toggleState13.BorderRadius = 17;
+            toggleState13.BorderRadiusInner = 11;
+            toggleState13.BorderThickness = 1;
+            toggleState13.BorderThicknessInner = 1;
+            this.switch_active_market.ToggleStateDisabled = toggleState13;
+            toggleState14.BackColor = System.Drawing.Color.Empty;
+            toggleState14.BackColorInner = System.Drawing.Color.Empty;
+            toggleState14.BorderColor = System.Drawing.Color.Transparent;
+            toggleState14.BorderColorInner = System.Drawing.Color.Empty;
+            toggleState14.BorderRadius = 1;
+            toggleState14.BorderRadiusInner = 1;
+            toggleState14.BorderThickness = 1;
+            toggleState14.BorderThicknessInner = 1;
+            this.switch_active_market.ToggleStateOff = toggleState14;
+            toggleState15.BackColor = System.Drawing.Color.Violet;
+            toggleState15.BackColorInner = System.Drawing.Color.White;
+            toggleState15.BorderColor = System.Drawing.Color.Violet;
+            toggleState15.BorderColorInner = System.Drawing.Color.White;
+            toggleState15.BorderRadius = 15;
+            toggleState15.BorderRadiusInner = 9;
+            toggleState15.BorderThickness = 1;
+            toggleState15.BorderThicknessInner = 1;
+            this.switch_active_market.ToggleStateOn = toggleState15;
             this.switch_active_market.Value = true;
             // 
             // label_market_path
             // 
             this.label_market_path.ForeColor = System.Drawing.Color.Violet;
-            this.label_market_path.Location = new System.Drawing.Point(86, 148);
+            this.label_market_path.Location = new System.Drawing.Point(86, 110);
             this.label_market_path.Name = "label_market_path";
             this.label_market_path.Size = new System.Drawing.Size(154, 13);
             this.label_market_path.TabIndex = 37;
@@ -716,6 +600,7 @@ namespace Ana_kata
             this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 35;
             this.label2.Text = "Auto update market";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // switch_auto_update
             // 
@@ -731,39 +616,39 @@ namespace Ana_kata
             this.switch_auto_update.Size = new System.Drawing.Size(30, 16);
             this.switch_auto_update.TabIndex = 34;
             this.switch_auto_update.ThumbMargin = 3;
-            toggleState13.BackColor = System.Drawing.Color.DarkGray;
-            toggleState13.BackColorInner = System.Drawing.Color.White;
-            toggleState13.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState13.BorderColorInner = System.Drawing.Color.White;
-            toggleState13.BorderRadius = 17;
-            toggleState13.BorderRadiusInner = 11;
-            toggleState13.BorderThickness = 1;
-            toggleState13.BorderThicknessInner = 1;
-            this.switch_auto_update.ToggleStateDisabled = toggleState13;
-            toggleState14.BackColor = System.Drawing.Color.Empty;
-            toggleState14.BackColorInner = System.Drawing.Color.Empty;
-            toggleState14.BorderColor = System.Drawing.Color.Transparent;
-            toggleState14.BorderColorInner = System.Drawing.Color.Empty;
-            toggleState14.BorderRadius = 1;
-            toggleState14.BorderRadiusInner = 1;
-            toggleState14.BorderThickness = 1;
-            toggleState14.BorderThicknessInner = 1;
-            this.switch_auto_update.ToggleStateOff = toggleState14;
-            toggleState15.BackColor = System.Drawing.Color.Violet;
-            toggleState15.BackColorInner = System.Drawing.Color.White;
-            toggleState15.BorderColor = System.Drawing.Color.Violet;
-            toggleState15.BorderColorInner = System.Drawing.Color.White;
-            toggleState15.BorderRadius = 15;
-            toggleState15.BorderRadiusInner = 9;
-            toggleState15.BorderThickness = 1;
-            toggleState15.BorderThicknessInner = 1;
-            this.switch_auto_update.ToggleStateOn = toggleState15;
+            toggleState16.BackColor = System.Drawing.Color.DarkGray;
+            toggleState16.BackColorInner = System.Drawing.Color.White;
+            toggleState16.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState16.BorderColorInner = System.Drawing.Color.White;
+            toggleState16.BorderRadius = 17;
+            toggleState16.BorderRadiusInner = 11;
+            toggleState16.BorderThickness = 1;
+            toggleState16.BorderThicknessInner = 1;
+            this.switch_auto_update.ToggleStateDisabled = toggleState16;
+            toggleState17.BackColor = System.Drawing.Color.Empty;
+            toggleState17.BackColorInner = System.Drawing.Color.Empty;
+            toggleState17.BorderColor = System.Drawing.Color.Transparent;
+            toggleState17.BorderColorInner = System.Drawing.Color.Empty;
+            toggleState17.BorderRadius = 1;
+            toggleState17.BorderRadiusInner = 1;
+            toggleState17.BorderThickness = 1;
+            toggleState17.BorderThicknessInner = 1;
+            this.switch_auto_update.ToggleStateOff = toggleState17;
+            toggleState18.BackColor = System.Drawing.Color.Violet;
+            toggleState18.BackColorInner = System.Drawing.Color.White;
+            toggleState18.BorderColor = System.Drawing.Color.Violet;
+            toggleState18.BorderColorInner = System.Drawing.Color.White;
+            toggleState18.BorderRadius = 15;
+            toggleState18.BorderRadiusInner = 9;
+            toggleState18.BorderThickness = 1;
+            toggleState18.BorderThicknessInner = 1;
+            this.switch_auto_update.ToggleStateOn = toggleState18;
             this.switch_auto_update.Value = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 148);
+            this.label3.Location = new System.Drawing.Point(13, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 36;
@@ -787,7 +672,7 @@ namespace Ana_kata
             this.bunifuShapes1.BorderThickness = 1;
             this.bunifuShapes1.FillColor = System.Drawing.Color.Transparent;
             this.bunifuShapes1.FillShape = false;
-            this.bunifuShapes1.Location = new System.Drawing.Point(89, 428);
+            this.bunifuShapes1.Location = new System.Drawing.Point(89, 396);
             this.bunifuShapes1.Name = "bunifuShapes1";
             this.bunifuShapes1.Shape = Bunifu.UI.WinForms.BunifuShapes.Shapes.Line;
             this.bunifuShapes1.Sides = 3;
@@ -798,11 +683,11 @@ namespace Ana_kata
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 426);
+            this.label4.Location = new System.Drawing.Point(12, 394);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 37;
-            this.label4.Text = "version: 1.4.0";
+            this.label4.Text = "version: Bêta";
             // 
             // label5
             // 
@@ -823,7 +708,7 @@ namespace Ana_kata
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(292, 464);
+            this.ClientSize = new System.Drawing.Size(292, 418);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.bunifuShapes1);
@@ -848,6 +733,11 @@ namespace Ana_kata
             this.PerformLayout();
 
         }
+
+        /*private static EventHandler GetLabel_token_Click()
+        {
+            return this.label_token_Click;
+        }*/
 
         #endregion
 
@@ -875,8 +765,6 @@ namespace Ana_kata
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton button_stop;
         private System.Windows.Forms.Label label_cookie;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private Bunifu.UI.WinForms.BunifuToggleSwitch switch_save_cookie;
         private System.Windows.Forms.Label label_queue;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label_banned;
@@ -885,8 +773,6 @@ namespace Ana_kata
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label_playername;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private Bunifu.UI.WinForms.BunifuToggleSwitch switch_dev_mod;
     }
 }
 

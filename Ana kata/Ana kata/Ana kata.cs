@@ -41,8 +41,6 @@ namespace Ana_kata
             public string response = null;
             public string playername = null;
             public string token = null;
-            public dev_mod.dev_mod dev_console = new dev_mod.dev_mod();
-            public popup.ok warning = new popup.ok("Dev mod activated", "Be careful you activated an advanced option, use it only if you know what you do");
             public List<string> banned = new List<string>()
             {
                 "InvalidTokenException",
@@ -76,8 +74,6 @@ namespace Ana_kata
             switch_auto_update.Checked = settings_profile.market.autoupdate;
             switch_active_market.Checked = settings_profile.market.activate;
             label_market_path.Text = settings_profile.market.path;
-            switch_save_cookie.Checked = settings_profile.cookie.autosave;
-            switch_dev_mod.Checked = settings_profile.dev_mod;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -119,25 +115,22 @@ namespace Ana_kata
 
         private void send_log(string sender, string message)
         {
-            if (variables.profile.dev_mod == true && variables.dev_console.running == true)
-            {
-                variables.dev_console.send(sender, message);
-            }
+
         }
 
         private void update_market(object sender, EventArgs e)
         {
             string output = "market\\market.json";
 
-            eventer(MethodBase.GetCurrentMethod().Name, $"updating market");
+            Console.WriteLine($"updating market");
             if (variables.manager.get_switch_button(switch_auto_update) == true)
             {
-                eventer(MethodBase.GetCurrentMethod().Name, $"loading {output}");
+                Console.WriteLine($"loading {output}");
                 load_market(output);
             }
             else
             {
-                eventer(MethodBase.GetCurrentMethod().Name, $"loading {variables.profile.market.path}");
+                Console.WriteLine($"loading {variables.profile.market.path}");
                 load_market(variables.profile.market.path);
             }
         }
@@ -148,20 +141,17 @@ namespace Ana_kata
             variables.profile.market.activate = variables.manager.get_switch_button(switch_active_market);
             variables.profile.market.autoupdate = variables.manager.get_switch_button(switch_auto_update);
             variables.profile.market.path = variables.manager.get_label(label_market_path);
-            variables.profile.cookie.autosave = variables.manager.get_switch_button(switch_save_cookie);
-            variables.profile.dev_mod = variables.manager.get_switch_button(switch_dev_mod);
 
-            eventer(MethodBase.GetCurrentMethod().Name, $"saving current profile:");
-            eventer(MethodBase.GetCurrentMethod().Name, $"variables.profile.autorun: {variables.profile.autorun}");
-            eventer(MethodBase.GetCurrentMethod().Name, $"variables.profile.market.activate: {variables.profile.market.activate}");
-            eventer(MethodBase.GetCurrentMethod().Name, $"variables.profile.market.autoupdate: {variables.profile.market.autoupdate}");
-            eventer(MethodBase.GetCurrentMethod().Name, $"variables.profile.market.path: {variables.profile.market.path}");
-            eventer(MethodBase.GetCurrentMethod().Name, $"variables.profile.cookie.autosave: {variables.profile.cookie.autosave}");
-            eventer(MethodBase.GetCurrentMethod().Name, $"variables.profile.dev_mod: {variables.profile.dev_mod}");
+            Console.WriteLine($"saving current profile:");
+            Console.WriteLine($"variables.profile.autorun: {variables.profile.autorun}");
+            Console.WriteLine($"variables.profile.market.activate: {variables.profile.market.activate}");
+            Console.WriteLine($"variables.profile.market.autoupdate: {variables.profile.market.autoupdate}");
+            Console.WriteLine($"variables.profile.market.path: {variables.profile.market.path}");
+            Console.WriteLine($"variables.profile.cookie.autosave: {variables.profile.cookie.autosave}");
 
-            eventer(MethodBase.GetCurrentMethod().Name, $"writting profile");
+            Console.WriteLine($"writting profile");
             File.WriteAllText("settings\\profile.json", JsonConvert.SerializeObject(variables.profile));
-            eventer(MethodBase.GetCurrentMethod().Name, $"profile written");
+            Console.WriteLine($"profile written");
         }
 
         private void button_exit_Click(object sender, EventArgs e)
@@ -173,9 +163,9 @@ namespace Ana_kata
 
         private void button_reduce_Click(object sender, EventArgs e)
         {
-            eventer(MethodBase.GetCurrentMethod().Name, $"reducing window");
+            Console.WriteLine($"reducing window");
             WindowState = FormWindowState.Minimized;
-            eventer(MethodBase.GetCurrentMethod().Name, $"window reduced");
+            Console.WriteLine($"window reduced");
         }
 
         private void label_market_path_Click(object sender, EventArgs e)
@@ -201,74 +191,74 @@ namespace Ana_kata
 
         private void load_market(string path)
         {
-            eventer(MethodBase.GetCurrentMethod().Name, $"loading market");
+            Console.WriteLine($"loading market");
 
             if (File.Exists(path) == true)
             {
-                eventer(MethodBase.GetCurrentMethod().Name, $"market path found: {path}");
-                eventer(MethodBase.GetCurrentMethod().Name, $"reading market file");
+                Console.WriteLine($"market path found: {path}");
+                Console.WriteLine($"reading market file");
                 variables.market = File.ReadAllText(path);
-                eventer(MethodBase.GetCurrentMethod().Name, $"market file read");
-                eventer(MethodBase.GetCurrentMethod().Name, $"updating label");
+                Console.WriteLine($"market file read");
+                Console.WriteLine($"updating label");
                 variables.manager.label(label_market_path, path, Color.Violet);
-                eventer(MethodBase.GetCurrentMethod().Name, $"label updated");
+                Console.WriteLine($"label updated");
             }
             else
             {
-                eventer(MethodBase.GetCurrentMethod().Name, $"market path not found");
-                eventer(MethodBase.GetCurrentMethod().Name, $"updating path");
+                Console.WriteLine($"market path not found");
+                Console.WriteLine($"updating path");
                 variables.manager.label(label_market_path, "path not found", Color.Red);
-                eventer(MethodBase.GetCurrentMethod().Name, $"path updated");
+                Console.WriteLine($"path updated");
             }
         }
 
         private void button_play_Click(object sender, EventArgs e)
         {
-            eventer(MethodBase.GetCurrentMethod().Name, $"starting anakata catch");
+            Console.WriteLine($"starting anakata catch");
             InstallCertificate();
             Start();
-            eventer(MethodBase.GetCurrentMethod().Name, $"anakata catch started");
+            Console.WriteLine($"anakata catch started");
         }
 
         private void button_stop_Click(object sender, EventArgs e)
         {
-            eventer(MethodBase.GetCurrentMethod().Name, $"stopping anakata catch");
+            Console.WriteLine($"stopping anakata catch");
             Stop();
-            eventer(MethodBase.GetCurrentMethod().Name, $"anakata catch stopped");
+            Console.WriteLine($"anakata catch stopped");
         }
 
         public bool InstallCertificate()
         {
-            eventer(MethodBase.GetCurrentMethod().Name, $"installing certificate");
+            Console.WriteLine($"installing certificate");
             Cursor.Current = Cursors.WaitCursor;
 
             if (!CertMaker.rootCertExists())
             {
-                eventer(MethodBase.GetCurrentMethod().Name, $"root certificate doesn't exists");
+                Console.WriteLine($"root certificate doesn't exists");
                 if (!CertMaker.createRootCert())
                 {
-                    eventer(MethodBase.GetCurrentMethod().Name, $"failed to create root certificate");
+                    Console.WriteLine($"failed to create root certificate");
                     Cursor.Current = Cursors.Default;
                     return (false);
                 }
                 else
                 {
-                    eventer(MethodBase.GetCurrentMethod().Name, $"successfully to create root certificate");
+                    Console.WriteLine($"successfully to create root certificate");
                 }
 
                 if (!CertMaker.trustRootCert())
                 {
-                    eventer(MethodBase.GetCurrentMethod().Name, $"failed to trust root certificate");
+                    Console.WriteLine($"failed to trust root certificate");
                     Cursor.Current = Cursors.Default;
                     return (false);
                 }
                 else
                 {
-                    eventer(MethodBase.GetCurrentMethod().Name, $"successfully to trust root certificate");
+                    Console.WriteLine($"successfully to trust root certificate");
                 }
             } else
             {
-                eventer(MethodBase.GetCurrentMethod().Name, $"certificate root exists");
+                Console.WriteLine($"certificate root exists");
             }
 
             Cursor.Current = Cursors.Default;
@@ -281,21 +271,21 @@ namespace Ana_kata
 
             if (CertMaker.rootCertExists())
             {
-                eventer(MethodBase.GetCurrentMethod().Name, $"root certificate exists");
+                Console.WriteLine($"root certificate exists");
                 if (!CertMaker.removeFiddlerGeneratedCerts(true))
                 {
-                    eventer(MethodBase.GetCurrentMethod().Name, $"certificate root removed");
+                    Console.WriteLine($"certificate root removed");
                     Cursor.Current = Cursors.Default;
                     return (false);
                 }
                 else
                 {
-                    eventer(MethodBase.GetCurrentMethod().Name, $"failed to remove certificate root");
+                    Console.WriteLine($"failed to remove certificate root");
                 }
             }
             else
             {
-                eventer(MethodBase.GetCurrentMethod().Name, $"no certificate root to remove");
+                Console.WriteLine($"no certificate root to remove");
             }
             Cursor.Current = Cursors.Default;
             return (true);
@@ -304,6 +294,11 @@ namespace Ana_kata
         private void label_cookie_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(variables.manager.get_label(label_cookie));
+        }
+
+        private void label_token_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(variables.manager.get_label(label_token));
         }
 
         private void FiddlerApplication_BeforeRequest(Session oSession)
@@ -317,13 +312,13 @@ namespace Ana_kata
                 .RegisterAsSystemProxy()
                 .DecryptSSL()
                 .Build();
-            eventer(MethodBase.GetCurrentMethod().Name, $"checking proxy status");
-            eventer(MethodBase.GetCurrentMethod().Name, $"proxy running: {FiddlerApplication.IsStarted()}");
+            Console.WriteLine($"checking proxy status");
+            Console.WriteLine($"proxy running: {FiddlerApplication.IsStarted()}");
             if (FiddlerApplication.IsStarted() == false)
             {
-                eventer(MethodBase.GetCurrentMethod().Name, $"starting proxy");
+                Console.WriteLine($"starting proxy");
                 FiddlerApplication.Startup(startupSettings);
-                eventer(MethodBase.GetCurrentMethod().Name, $"proxy started");
+                Console.WriteLine($"proxy started");
             }
 
             FiddlerApplication.BeforeRequest += FiddlerApplication_BeforeRequest;
@@ -331,8 +326,6 @@ namespace Ana_kata
 
             variables.manager.button(button_play, false);
             variables.manager.button(button_stop, true);
-
-            variables.manager.enabler_switch_button(switch_dev_mod, false);
         }
 
         public void Stop()
@@ -344,8 +337,6 @@ namespace Ana_kata
 
             variables.manager.button(button_play, true);
             variables.manager.button(button_stop, false);
-
-            variables.manager.enabler_switch_button(switch_dev_mod, true);
         }
 
         private void save_cookie(object sender, EventArgs e)
@@ -359,14 +350,14 @@ namespace Ana_kata
 
             if (variables.playername != null && variables.token != null && variables.cookie != null)
             {
-                eventer(MethodBase.GetCurrentMethod().Name, $"credentials:");
+                Console.WriteLine($"credentials:");
                 foreach (string data in credentials)
                 {
-                    eventer(MethodBase.GetCurrentMethod().Name, $"\t{data}");
+                    Console.WriteLine($"\t{data}");
                 }
-                eventer(MethodBase.GetCurrentMethod().Name, $"dumping credentials in 'cookie.txt'");
+                Console.WriteLine($"dumping credentials in 'cookie.txt'");
                 File.WriteAllLines("cookie.txt", credentials);
-                eventer(MethodBase.GetCurrentMethod().Name, $"credentials dumped");
+                Console.WriteLine($"credentials dumped");
             }
         }
 
@@ -376,11 +367,7 @@ namespace Ana_kata
             {
                 variables.cookie = future;
                 variables.manager.label(label_cookie, variables.cookie, Color.Violet);
-                eventer(MethodBase.GetCurrentMethod().Name, $"cookie: {variables.cookie}");
-                if (variables.manager.get_switch_button(switch_save_cookie) == true)
-                {
-                    event_worker(variables.worker_cookie);
-                }
+                Console.WriteLine($"cookie: {variables.cookie}");
             }
         }
 
@@ -390,11 +377,7 @@ namespace Ana_kata
             {
                 variables.token = future;
                 variables.manager.label(label_token, variables.token, Color.Violet);
-                eventer(MethodBase.GetCurrentMethod().Name, $"token: {variables.token}");
-                if (variables.manager.get_switch_button(switch_save_cookie) == true)
-                {
-                    event_worker(variables.worker_cookie);
-                }
+                Console.WriteLine($"token: {variables.token}");
             }
         }
 
@@ -404,11 +387,7 @@ namespace Ana_kata
             {
                 variables.playername = future;
                 variables.manager.label(label_playername, variables.playername, Color.Violet);
-                eventer(MethodBase.GetCurrentMethod().Name, $"playername: {variables.playername}");
-                if (variables.manager.get_switch_button(switch_save_cookie) == true)
-                {
-                    event_worker(variables.worker_cookie);
-                }
+                Console.WriteLine($"playername: {variables.playername}");
             }
         }
 
@@ -418,70 +397,71 @@ namespace Ana_kata
 
             if (sess != null && sess.oRequest != null && sess.oRequest.headers != null)
             {
-                if (sess.fullUrl.Contains("bhvrdbd") == true)
+                if (sess.fullUrl.Contains("playfabapi") == true)
                 {
-                    if (sess.fullUrl.Contains("playername") && variables.playername == null)
+                    if (sess.fullUrl.Contains("LoginWithSteam") && variables.playername == null)
                     {
-                        eventer(MethodBase.GetCurrentMethod().Name, $"checking playername");
-                        update_playername(sess.fullUrl.Split('/')[7]);
-                        eventer(MethodBase.GetCurrentMethod().Name, $"playername checked");
+                        Console.WriteLine($"checking playername");
+                        update_playername(sess.GetResponseBodyAsString().Split('"')[87]);
+                        Console.WriteLine($"playername checked");
                     }
-                    if (sess.fullUrl.Contains("token=") && variables.token == null)
+                    if (sess.fullUrl.Contains("CloudScript") && variables.token == null)
                     {
-                        eventer(MethodBase.GetCurrentMethod().Name, $"checking token");
-                        update_token(sess.fullUrl.Split('=')[1]);
-                        eventer(MethodBase.GetCurrentMethod().Name, $"token checked");
+                        Console.WriteLine($"checking token");
+                        update_token(sess.RequestHeaders["X-EntityToken"]);
+                        Console.WriteLine($"token checked");
                     }
-                    if (sess.RequestHeaders.ToString().Contains("bhvrSession=") == true)
+                    if (sess.RequestHeaders.ToString().Contains("GetUserData") == true)
                     {
-                        eventer(MethodBase.GetCurrentMethod().Name, $"checking cookie");
-                        update_cookie(sess.RequestHeaders["Cookie"].Replace("bhvrSession=", ""));
-                        eventer(MethodBase.GetCurrentMethod().Name, $"cookie checked");
+                        Console.WriteLine($"checking ID");
+                        update_cookie(sess.GetRequestBodyAsString().Split('"')[5]);
+                        Console.WriteLine($"ID checked");
                     }
-                    if (sess.fullUrl.Contains("/v1/inventories") == true && variables.manager.get_switch_button(switch_active_market) == true)
+                    if (sess.fullUrl.Contains("GetUserInventory") == true && variables.manager.get_switch_button(switch_active_market) == true)
                     {
-                        eventer(MethodBase.GetCurrentMethod().Name, $"bypassing inventory limitations");
+                        Console.WriteLine($"bypassing inventory limitations");
                         sess.utilDecodeResponse();
                         sess.utilSetResponseBody(variables.market);
-                        eventer(MethodBase.GetCurrentMethod().Name, $"inventory limitations bypassed");
+                        Console.WriteLine($"inventory limitations bypassed");
                     }
                     if (sess.fullUrl.Contains("/v1/queue") == true)
                     {
-                        eventer(MethodBase.GetCurrentMethod().Name, $"checking queue");
+                        Console.WriteLine($"checking queue");
                         variables.response = sess.GetResponseBodyAsString();
                         if (variables.response.Contains("queueData") == true && variables.response.Contains("position") == true)
                         {
-                            eventer(MethodBase.GetCurrentMethod().Name, $"deserializing body");
+                            Console.WriteLine($"deserializing body");
                             variables.queue = JsonConvert.DeserializeObject<settings.Queue.Rootobject>(
                                 variables.response
                             );
-                            eventer(MethodBase.GetCurrentMethod().Name, $"body deserialized");
+                            Console.WriteLine($"body deserialized");
                             if (variables.queue.status == "QUEUED")
                             {
-                                eventer(MethodBase.GetCurrentMethod().Name, $"player in queue: {variables.queue.status}");
+                                Console.WriteLine($"player in queue: {variables.queue.status}");
                                 variables.manager.label(label_queue, $"{variables.queue.queueData.position}", Color.Violet);
                             } else
                             {
-                                eventer(MethodBase.GetCurrentMethod().Name, $"queue status: {variables.queue.status}");
+                                Console.WriteLine($"queue status: {variables.queue.status}");
                             }
                         }
                     }
-                    if (sess.fullUrl.Contains("bhvrdbd.com/api/v1/auth/provider/") == true)
+                    if (sess.fullUrl.Contains("LoginWithSteam") == true)
                     {
-                        eventer(MethodBase.GetCurrentMethod().Name, $"provided called");
-                        variables.response = sess.GetResponseBodyAsString();
+                        Console.WriteLine($"provided called");
+                        variables.response = sess.GetResponseBodyAsString().Split('"')[62];
                         if (variables.response != null && variables.response != string.Empty)
                         {
-                            eventer(MethodBase.GetCurrentMethod().Name, $"checking current ban status");
-                            if (is_banned(variables.banned, variables.response) == true)
-                            {
-                                variables.manager.label(label_banned, "banned", Color.Red);
-                            }
-                            else
+                            Console.WriteLine($"checking current ban status");
+                            Console.WriteLine(variables.response);
+                            if (variables.response == ":false,")
                             {
                                 variables.manager.label(label_banned, "not banned", Color.LimeGreen);
                             }
-                            eventer(MethodBase.GetCurrentMethod().Name, $"ban status checked");
+                            else
+                            {
+                                variables.manager.label(label_banned, "banned", Color.Red);
+                            }
+                            Console.WriteLine($"ban status checked");
                         }
                     }
                 }
@@ -494,11 +474,11 @@ namespace Ana_kata
             {
                 if (body.Contains(message) == true)
                 {
-                    eventer(MethodBase.GetCurrentMethod().Name, $"client banned");
+                    Console.WriteLine($"client banned");
                     return (true);
                 }
             }
-            eventer(MethodBase.GetCurrentMethod().Name, $"client not banned");
+            Console.WriteLine($"client not banned");
             return (false);
         }
 
@@ -509,33 +489,22 @@ namespace Ana_kata
                 InstallCertificate();
                 Start();
             }
-            if (variables.profile.dev_mod == true)
-                variables.dev_console.Show();
         }
 
         private void Ana_kata_FormClosing(object sender, FormClosingEventArgs e)
         {
             Stop();
             UninstallCertificate();
-            if (variables.profile.dev_mod == true && variables.dev_console.running == true)
-            {
-                variables.dev_console.running = false;
-            }
-            variables.dev_console.Dispose();
         }
 
-        private void switch_dev_mod_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
-            update_dev_mod();
+
         }
 
-        private void update_dev_mod()
+        private void switch_save_cookie_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
         {
-            if (switch_dev_mod.Checked == true)
-            {
-                variables.warning.ShowDialog();
-            }
-            variables.profile.dev_mod = switch_dev_mod.Checked;
+
         }
     }
 }
