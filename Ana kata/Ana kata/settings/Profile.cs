@@ -11,7 +11,7 @@ namespace Ana_kata.settings
         public class Rootobject
         {
             public bool autorun { get; set; }
-            public bool dev_mod { get; set; }
+            public bool streamer { get; set; }
             public Cookie cookie { get; set; }
             public Market market { get; set; }
         }

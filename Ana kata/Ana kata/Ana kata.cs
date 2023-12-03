@@ -12,6 +12,7 @@ using System.Reflection;
 
 using ComponentFactory.Krypton.Toolkit;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 using Fiddler;
 using System.Net;
@@ -73,6 +74,7 @@ namespace Ana_kata
             switch_autorun.Checked = settings_profile.autorun;
             switch_auto_update.Checked = settings_profile.market.autoupdate;
             switch_active_market.Checked = settings_profile.market.activate;
+            switch_active_market.Checked = settings_profile.streamer;
             label_market_path.Text = settings_profile.market.path;
         }
 
@@ -140,6 +142,7 @@ namespace Ana_kata
             variables.profile.autorun = variables.manager.get_switch_button(switch_autorun);
             variables.profile.market.activate = variables.manager.get_switch_button(switch_active_market);
             variables.profile.market.autoupdate = variables.manager.get_switch_button(switch_auto_update);
+            variables.profile.streamer = variables.manager.get_switch_button(switch_active_streamer);
             variables.profile.market.path = variables.manager.get_label(label_market_path);
 
             Console.WriteLine($"saving current profile:");
@@ -200,7 +203,7 @@ namespace Ana_kata
                 variables.market = File.ReadAllText(path);
                 Console.WriteLine($"market file read");
                 Console.WriteLine($"updating label");
-                variables.manager.label(label_market_path, path, Color.Violet);
+                variables.manager.label(label_market_path, path, Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86))))));
                 Console.WriteLine($"label updated");
             }
             else
@@ -366,7 +369,7 @@ namespace Ana_kata
             if (variables.cookie != future)
             {
                 variables.cookie = future;
-                variables.manager.label(label_cookie, variables.cookie, Color.Violet);
+                variables.manager.label(label_cookie, variables.cookie, Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86))))));
                 Console.WriteLine($"cookie: {variables.cookie}");
             }
         }
@@ -376,7 +379,7 @@ namespace Ana_kata
             if (variables.token != future)
             {
                 variables.token = future;
-                variables.manager.label(label_token, variables.token, Color.Violet);
+                variables.manager.label(label_token, variables.token, Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86))))));
                 Console.WriteLine($"token: {variables.token}");
             }
         }
@@ -386,7 +389,7 @@ namespace Ana_kata
             if (variables.playername != future)
             {
                 variables.playername = future;
-                variables.manager.label(label_playername, variables.playername, Color.Violet);
+                variables.manager.label(label_playername, variables.playername, Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86))))));
                 Console.WriteLine($"playername: {variables.playername}");
             }
         }
@@ -404,6 +407,14 @@ namespace Ana_kata
                         Console.WriteLine($"checking playername");
                         update_playername(sess.GetResponseBodyAsString().Split('"')[87]);
                         Console.WriteLine($"playername checked");
+                    }
+                    if (sess.fullUrl.Contains("LoginWithSteam") && variables.manager.get_switch_button(switch_active_streamer) == true)
+                    {
+                        JObject login_infos = JObject.Parse(sess.GetResponseBodyAsString());
+                        login_infos["data"]["InfoResultPayload"]["AccountInfo"]["SteamInfo"]["SteamName"] = "Pochita";
+                        string modifiedResponse = login_infos.ToString(Formatting.None);
+                        sess.utilSetResponseBody(modifiedResponse);
+                        Console.WriteLine($"playername changed");
                     }
                     if (sess.fullUrl.Contains("CloudScript") && variables.token == null)
                     {
@@ -438,7 +449,7 @@ namespace Ana_kata
                             if (variables.queue.status == "QUEUED")
                             {
                                 Console.WriteLine($"player in queue: {variables.queue.status}");
-                                variables.manager.label(label_queue, $"{variables.queue.queueData.position}", Color.Violet);
+                                variables.manager.label(label_queue, $"{variables.queue.queueData.position}", Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86))))));
                             } else
                             {
                                 Console.WriteLine($"queue status: {variables.queue.status}");

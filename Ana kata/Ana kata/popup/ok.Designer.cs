@@ -95,11 +95,11 @@ namespace Ana_kata.popup
             this.button_patch.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.button_patch.OnDisabledState.IconLeftImage = null;
             this.button_patch.OnDisabledState.IconRightImage = null;
-            this.button_patch.onHoverState.BorderColor = System.Drawing.Color.Violet;
+            this.button_patch.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86)))));
             this.button_patch.onHoverState.BorderRadius = 20;
             this.button_patch.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
             this.button_patch.onHoverState.BorderThickness = 1;
-            this.button_patch.onHoverState.FillColor = System.Drawing.Color.Violet;
+            this.button_patch.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86)))));
             this.button_patch.onHoverState.ForeColor = System.Drawing.Color.White;
             this.button_patch.onHoverState.IconLeftImage = null;
             this.button_patch.onHoverState.IconRightImage = null;
@@ -111,11 +111,11 @@ namespace Ana_kata.popup
             this.button_patch.OnIdleState.ForeColor = System.Drawing.Color.White;
             this.button_patch.OnIdleState.IconLeftImage = null;
             this.button_patch.OnIdleState.IconRightImage = null;
-            this.button_patch.OnPressedState.BorderColor = System.Drawing.Color.Violet;
+            this.button_patch.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86)))));
             this.button_patch.OnPressedState.BorderRadius = 20;
             this.button_patch.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
             this.button_patch.OnPressedState.BorderThickness = 1;
-            this.button_patch.OnPressedState.FillColor = System.Drawing.Color.Violet;
+            this.button_patch.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86)))));
             this.button_patch.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.button_patch.OnPressedState.IconLeftImage = null;
             this.button_patch.OnPressedState.IconRightImage = null;
