@@ -12,6 +12,7 @@ namespace Pochita.settings
         {
             public bool autorun { get; set; }
             public bool streamer { get; set; }
+            public bool telemetry { get; set; }
             public Cookie cookie { get; set; }
             public Market market { get; set; }
         }

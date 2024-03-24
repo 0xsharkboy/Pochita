@@ -36,11 +36,12 @@ namespace Pochita
             public BackgroundWorker worker_run = new BackgroundWorker();
             public BackgroundWorker worker_cookie = new BackgroundWorker();
             public BackgroundWorker worker_logger = new BackgroundWorker();
-            public settings.Queue.Rootobject queue = null;
             public string cookie = null;
             public string market = null;
             public string response = null;
             public string playername = null;
+            public string server_ip = null;
+            public string server_region = null;
             public string token = null;
             public List<string> banned = new List<string>()
             {
@@ -74,7 +75,8 @@ namespace Pochita
             switch_autorun.Checked = settings_profile.autorun;
             switch_auto_update.Checked = settings_profile.market.autoupdate;
             switch_active_market.Checked = settings_profile.market.activate;
-            switch_active_market.Checked = settings_profile.streamer;
+            switch_active_streamer.Checked = settings_profile.streamer;
+            switch_disable_telemetry.Checked = settings_profile.telemetry;
             label_market_path.Text = settings_profile.market.path;
         }
 
@@ -143,6 +145,7 @@ namespace Pochita
             variables.profile.market.activate = variables.manager.get_switch_button(switch_active_market);
             variables.profile.market.autoupdate = variables.manager.get_switch_button(switch_auto_update);
             variables.profile.streamer = variables.manager.get_switch_button(switch_active_streamer);
+            variables.profile.telemetry = variables.manager.get_switch_button(switch_disable_telemetry);
             variables.profile.market.path = variables.manager.get_label(label_market_path);
 
             Console.WriteLine($"saving current profile:");
@@ -217,17 +220,17 @@ namespace Pochita
 
         private void button_play_Click(object sender, EventArgs e)
         {
-            Console.WriteLine($"starting anakata catch");
+            Console.WriteLine($"starting pochita catch");
             InstallCertificate();
             Start();
-            Console.WriteLine($"anakata catch started");
+            Console.WriteLine($"pochita catch started");
         }
 
         private void button_stop_Click(object sender, EventArgs e)
         {
-            Console.WriteLine($"stopping anakata catch");
+            Console.WriteLine($"stopping pochita catch");
             Stop();
-            Console.WriteLine($"anakata catch stopped");
+            Console.WriteLine($"pochita catch stopped");
         }
 
         public bool InstallCertificate()
@@ -394,6 +397,25 @@ namespace Pochita
             }
         }
 
+        private void update_server_ip(string future)
+        {
+            if (variables.server_ip != future)
+            {
+                variables.server_ip = future;
+                variables.manager.label(label_server_ip, variables.server_ip, Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86))))));
+                Console.WriteLine($"playername: {variables.server_ip}");
+            }
+        }
+        private void update_server_region(string future)
+        {
+            if (variables.server_ip != future)
+            {
+                variables.server_region = future;
+                variables.manager.label(label_server_region, variables.server_region, Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86))))));
+                Console.WriteLine($"playername: {variables.server_region}");
+            }
+        }
+
         private void Bypasser(Session sess)
         {
             sess.bBufferResponse = true;
@@ -405,7 +427,7 @@ namespace Pochita
                     if (sess.fullUrl.Contains("LoginWithSteam") && variables.playername == null)
                     {
                         Console.WriteLine($"checking playername");
-                        update_playername(sess.GetResponseBodyAsString().Split('"')[87]);
+                        update_playername(JObject.Parse(sess.GetResponseBodyAsString())["data"]["InfoResultPayload"]["AccountInfo"]["SteamInfo"]["SteamName"].ToString(Formatting.None).Replace("\"", ""));
                         Console.WriteLine($"playername checked");
                     }
                     if (sess.fullUrl.Contains("LoginWithSteam") && variables.manager.get_switch_button(switch_active_streamer) == true)
@@ -416,16 +438,16 @@ namespace Pochita
                         sess.utilSetResponseBody(modifiedResponse);
                         Console.WriteLine($"playername changed");
                     }
-                    if (sess.fullUrl.Contains("CloudScript") && variables.token == null)
+                    if (sess.fullUrl.Contains("GetEntityToken") && variables.token == null)
                     {
                         Console.WriteLine($"checking token");
-                        update_token(sess.RequestHeaders["X-EntityToken"]);
+                        update_token(JObject.Parse(sess.GetResponseBodyAsString())["data"]["EntityToken"].ToString(Formatting.None).Replace("\"", ""));
                         Console.WriteLine($"token checked");
                     }
-                    if (sess.RequestHeaders.ToString().Contains("GetUserData") == true)
+                    if (sess.fullUrl.Contains("GetUserData") && variables.cookie == null)
                     {
                         Console.WriteLine($"checking ID");
-                        update_cookie(sess.GetRequestBodyAsString().Split('"')[5]);
+                        update_cookie(JObject.Parse(sess.GetRequestBodyAsString())["PlayFabId"].ToString(Formatting.None).Replace("\"", ""));
                         Console.WriteLine($"ID checked");
                     }
                     if (sess.fullUrl.Contains("GetUserInventory") == true && variables.manager.get_switch_button(switch_active_market) == true)
@@ -435,36 +457,27 @@ namespace Pochita
                         sess.utilSetResponseBody(variables.market);
                         Console.WriteLine($"inventory limitations bypassed");
                     }
-                    if (sess.fullUrl.Contains("/v1/queue") == true)
+                    if (sess.fullUrl.Contains("ExecuteFunction") && sess.GetRequestBodyAsString().Contains("v4_FindServer"))
                     {
-                        Console.WriteLine($"checking queue");
-                        variables.response = sess.GetResponseBodyAsString();
-                        if (variables.response.Contains("queueData") == true && variables.response.Contains("position") == true)
-                        {
-                            Console.WriteLine($"deserializing body");
-                            variables.queue = JsonConvert.DeserializeObject<settings.Queue.Rootobject>(
-                                variables.response
-                            );
-                            Console.WriteLine($"body deserialized");
-                            if (variables.queue.status == "QUEUED")
-                            {
-                                Console.WriteLine($"player in queue: {variables.queue.status}");
-                                variables.manager.label(label_queue, $"{variables.queue.queueData.position}", Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(137)))), ((int)(((byte)(86))))));
-                            } else
-                            {
-                                Console.WriteLine($"queue status: {variables.queue.status}");
-                            }
-                        }
+                        Console.WriteLine($"checking server ip");
+                        update_server_ip(JObject.Parse(sess.GetResponseBodyAsString())["data"]["FunctionResult"]["ipAddress"].ToString(Formatting.None).Replace("\"", ""));
+                        update_server_region(JObject.Parse(sess.GetRequestBodyAsString())["FunctionParameter"]["Region"].ToString(Formatting.None).Replace("\"", ""));
+                        Console.WriteLine($"server ip checked");
+                    }
+                    if (sess.fullUrl.Contains("/Event/WriteTelemetryEvents") && variables.manager.get_switch_button(switch_disable_telemetry) == true)
+                    {
+                        sess.oRequest.FailSession(403, "Blocked by Pochita <3", "Fuck you");
+                        Console.WriteLine("Blocked Telemetry request");
                     }
                     if (sess.fullUrl.Contains("LoginWithSteam") == true)
                     {
                         Console.WriteLine($"provided called");
-                        variables.response = sess.GetResponseBodyAsString().Split('"')[62];
+                        variables.response = JObject.Parse(sess.GetResponseBodyAsString())["data"]["InfoResultPayload"]["AccountInfo"]["TitleInfo"]["isBanned"].ToString(Formatting.None);
                         if (variables.response != null && variables.response != string.Empty)
                         {
                             Console.WriteLine($"checking current ban status");
                             Console.WriteLine(variables.response);
-                            if (variables.response == ":false,")
+                            if (variables.response == "false")
                             {
                                 variables.manager.label(label_banned, "not banned", Color.LimeGreen);
                             }
@@ -506,16 +519,6 @@ namespace Pochita
         {
             Stop();
             UninstallCertificate();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void switch_save_cookie_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
-        {
-
         }
     }
 }

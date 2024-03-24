@@ -931,6 +931,17 @@
         2Ce3RgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="switch_disable_telemetry.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAQCAYAAAABOs/SAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAENSURBVEhLtZQ7bsJAEEBdukxJmTJH8BG4BBINUsqUSccB
+        KBCFe9euKW13tL4BUooIiZ+R+CQSBXkT78LibJV4Rnp4NDM7DwnWQTOKogihn+d5DCX55S/IWUjIn+HB
+        rPcHAxG8Z1m2l8NtgPwIS/Ku0dwHjTcGKvdQm5jdY6Org0KkKbXg2PLsWWlIYeEOKLOGjohfEH85DXXw
+        xQEfqa+pCc5SxHNfUxOcJxGvfE1NcJ5FnPuamqCcy5/rVb5Bs6kJvkTEjyTqd9hiXJG9ywMKO3dAAxzy
+        Kh79SG1QlDg0h9uC9/8n+2fkoVHeguKQ5sY90AbsrGBC/ltqg+YTQyn8+36z4wOm5PVveo0g+AZA/X65
+        2Ce3RgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="switch_active_streamer.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAQCAYAAAABOs/SAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8

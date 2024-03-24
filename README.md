@@ -10,8 +10,9 @@ Pochita is an unlock all software for Texas Chain Saw Massacre based on Anakata 
 - [x] Market
 - [x] Market auto update
 - [x] Streamer mod
+- [x] Disable telemetry
+- [x] Server IP and Region
 - [ ] Custom level
 - [ ] Custom xp amount
 - [ ] DLCs unlock
-- [ ] Disabling telemetry
 - [ ] Player ID spoofer
