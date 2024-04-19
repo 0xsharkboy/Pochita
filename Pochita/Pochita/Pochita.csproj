@@ -193,6 +193,9 @@
     <Reference Include="ComponentFactory.Krypton.Workspace">
       <HintPath>..\..\Libraries\ComponentFactory.Krypton.Workspace.dll</HintPath>
     </Reference>
+    <Reference Include="DiscordRPC, Version=1.2.1.24, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DiscordRichPresence.1.2.1.24\lib\net45\DiscordRPC.dll</HintPath>
+    </Reference>
     <Reference Include="FiddlerCore">
       <HintPath>..\..\Libraries\FiddlerCore.dll</HintPath>
     </Reference>

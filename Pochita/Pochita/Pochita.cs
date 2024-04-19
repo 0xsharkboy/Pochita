@@ -16,6 +16,7 @@ using Newtonsoft.Json.Linq;
 
 using Fiddler;
 using System.Net;
+using DiscordRPC;
 
 namespace Pochita
 {
@@ -59,6 +60,7 @@ namespace Pochita
             InitializeComponent();
             initialize_variables(settings_profile);
             initialize_workers();
+            RPC();
         }
 
         private void initialize_workers()
@@ -66,6 +68,30 @@ namespace Pochita
             variables.worker_save.DoWork += new DoWorkEventHandler(saver);
             variables.worker_update.DoWork += new DoWorkEventHandler(update_market);
             variables.worker_cookie.DoWork += new DoWorkEventHandler(save_cookie);
+        }
+
+        static async Task RPC()
+        {
+            var client = new DiscordRpcClient("1230928127614783488");
+            client.Initialize();
+            var buttons = new DiscordRPC.Button[]
+            {
+                new DiscordRPC.Button() { Label = "Get Pochita", Url = "https://github.com/0xsharkboy/Pochita" }
+            };
+            var presence = new RichPresence()
+            {
+                Details = "Unlocking everything...",
+                State = "Fuck TCSM <3",
+                Timestamps = new Timestamps(DateTime.UtcNow),
+                Assets = new Assets()
+                {
+                    LargeImageKey = "pochita",
+                    LargeImageText = "Fuck TCSM",
+                },
+                Buttons = buttons
+            };
+            client.SetPresence(presence);
+            await Task.Delay(-1);
         }
 
         private void initialize_variables(settings.Profile.Rootobject settings_profile)
